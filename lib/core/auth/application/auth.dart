@@ -84,22 +84,28 @@ class AuthManager {
     required String password,
     required String phone,
     required String userType,
-     String ? location,
+    String? location,
   }) async {
     ref.read(authProvider).clearUserData();
+
+    // Create the body as a map
+    Map<String, dynamic> requestBody = {
+      "name": name,
+      "email": email,
+      "password": password,
+      "phone": phone,
+      "userType": userType,
+      "location": {
+        "coordinates": [85.3240, 27.7172]
+      }
+    };
+
     var response = await http.post(
       Uri.parse("$API_URL/auth/signup"),
-      body: {
-        "name": name,
-        "email": email,
-        "password": password,
-        "phone": phone,
-        "userType": userType,
-        "location": {
-          "coordinates": [85.3240, 27.7172]
-        }
-      },
+      headers: {"Content-Type": "application/json"},
+      body: json.encode(requestBody),
     );
+
     debugPrint(response.body);
     Map<String, dynamic> data = json.decode(response.body);
 

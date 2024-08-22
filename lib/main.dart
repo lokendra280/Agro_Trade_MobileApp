@@ -1,7 +1,5 @@
-import 'package:agro_millets/core/auth/application/auth.dart';
 import 'package:agro_millets/core/auth/presentation/login_page.dart';
 import 'package:agro_millets/core/home/presentation/home_page.dart';
-import 'package:agro_millets/data/auth_state_repository.dart';
 import 'package:agro_millets/data/cache/app_cache.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
