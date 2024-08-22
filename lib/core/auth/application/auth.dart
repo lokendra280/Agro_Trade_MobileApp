@@ -49,7 +49,7 @@ class AuthManager {
     GoogleSignIn googleSignIn = GoogleSignIn(
       scopes: [
         'email',
-        'https://www.googleapis.com/auth/contacts.readonly',
+        // 'https://www.googleapis.com/auth/contacts.readonly',
       ],
     );
 
@@ -84,6 +84,7 @@ class AuthManager {
     required String password,
     required String phone,
     required String userType,
+     String ? location,
   }) async {
     ref.read(authProvider).clearUserData();
     var response = await http.post(
@@ -94,6 +95,9 @@ class AuthManager {
         "password": password,
         "phone": phone,
         "userType": userType,
+        "location": {
+          "coordinates": [85.3240, 27.7172]
+        }
       },
     );
     debugPrint(response.body);

@@ -18,7 +18,7 @@ class SignUpPage extends ConsumerStatefulWidget {
 class _SignUpPageState extends ConsumerState<SignUpPage> {
   late AuthManager _authManager;
   String dropdownValue = "customer";
-  String email = "", password = "", username = "", phone = "";
+  String email = "", password = "", username = "", phone = ""; String location = "";
 
   @override
   void initState() {
@@ -93,6 +93,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   password: password,
                   phone: phone,
                   userType: dropdownValue,
+                  location: "kathmandu"
                 );
               },
               text: "Sign up",
